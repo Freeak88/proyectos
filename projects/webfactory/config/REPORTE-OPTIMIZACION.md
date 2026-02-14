@@ -44,7 +44,7 @@
 
 | Tipo de Tarea | Modelo Primario | Fallback | Costo/M tokens output |
 |--------------|-----------------|----------|----------------------|
-| **Chat general** | xai/grok-4.1-fast | gemini-2.5-flash | **$0.50** (vs $3.00) |
+| **Chat general** | moonshot/kimi-k2.5 | openai/gpt-5-mini | **$3.00** (con límites) |
 | **Generación contenido** | ollama/qwen3:8b | grok-4.1-fast | **$0.00** (local) |
 | **Razonamiento complejo** | moonshot/kimi-k2.5 | claude-sonnet | $3.00 (solo emergencias) |
 | **Heartbeat** | openai/gpt-5-mini | - | **$0.25** |
@@ -204,10 +204,10 @@ Proyección mensual: $207.00
 | Componente | Costo Anterior | Costo Nuevo | Ahorro |
 |------------|----------------|-------------|--------|
 | **Heartbeats** | $72/mes | $5.40/mes | 92% |
-| **Chat general** | $100/mes | $16.67/mes | 83% |
+| **Chat general** | $100/mes | $50/mes | 50% |
 | **Generación contenido** | $35/mes | $0/mes | 100% |
 | **Emergencias/complejo** | $0/mes | $5/mes | - |
-| **TOTAL** | **$207/mes** | **~$27/mes** | **87%** |
+| **TOTAL** | **$207/mes** | **~$60/mes** | **71%** |
 
 ---
 
