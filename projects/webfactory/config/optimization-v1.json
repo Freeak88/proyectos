@@ -1,0 +1,120 @@
+# 🚀 Configuración Optimizada - OpenClaw
+# Fecha: 14/02/2026
+# Objetivo: Reducir costos de $207/mes a <$40/mes
+
+{
+  "version": "1.0",
+  "description": "Configuración optimizada para reducción drástica de costos",
+  
+  "budget": {
+    "daily_limit_usd": 1.50,
+    "alert_threshold": 1.20,
+    "hard_stop": true,
+    "notification_channel": "telegram"
+  },
+
+  "context": {
+    "contextTokens": 80000,
+    "reserveTokensFloor": 0,
+    "cache_ttl": "6h",
+    "compaction": {
+      "enabled": true,
+      "threshold": 40000,
+      "reserveTokensFloor": 0,
+      "method": "summarize"
+    },
+    "pruning": {
+      "enabled": true,
+      "ttl": "6h",
+      "max_age": "24h"
+    }
+  },
+
+  "memory": {
+    "memoryFlush": {
+      "enabled": true,
+      "threshold": 40000,
+      "target": "MEMORY.md",
+      "summarize": true
+    },
+    "qmd": {
+      "enabled": true,
+      "max_results": 5,
+      "cache": true
+    }
+  },
+
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "xai/grok-4.1-fast",
+        "fallbacks": [
+          "google/gemini-2.5-flash",
+          "moonshot/kimi-k2.5"
+        ]
+      },
+      "contextWindow": 80000,
+      "compaction": {
+        "reserveTokensFloor": 0
+      }
+    },
+    
+    "heartbeat": {
+      "enabled": true,
+      "interval": "45m",
+      "model": "google/gemini-2.5-flash-lite",
+      "silent_hours": {
+        "start": "23:00",
+        "end": "08:00",
+        "timezone": "America/Argentina/Buenos_Aires"
+      },
+      "rotation": {
+        "enabled": true,
+        "tasks_per_pulse": 1,
+        "max_tasks": 3
+      },
+      "tasks": [
+        "fact_extraction",
+        "self_review", 
+        "pattern_recognition",
+        "entity_check"
+      ]
+    },
+
+    "subagents": {
+      "model": "xai/grok-4.1-fast",
+      "max_concurrent": 2,
+      "timeout": "5m"
+    },
+
+    "content_generation": {
+      "model": "ollama/qwen3:8b",
+      "fallback": "xai/grok-4.1-fast",
+      "local": true
+    },
+
+    "complex_reasoning": {
+      "model": "moonshot/kimi-k2.5",
+      "fallback": "anthropic/claude-sonnet-4-5"
+    }
+  },
+
+  "tools": {
+    "exec": {
+      "timeout": 60,
+      "max_output": 10000
+    },
+    "memory_search": {
+      "max_results": 5,
+      "cache": true
+    }
+  },
+
+  "notifications": {
+    "cost_alerts": {
+      "enabled": true,
+      "threshold_daily": 1.20,
+      "threshold_hourly": 0.50
+    }
+  }
+}
