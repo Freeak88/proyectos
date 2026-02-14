@@ -49,7 +49,8 @@
       "model": {
         "primary": "xai/grok-4.1-fast",
         "fallbacks": [
-          "google/gemini-2.5-flash",
+          "openai/gpt-5-mini",
+          "xai/grok-4.1-fast",
           "moonshot/kimi-k2.5"
         ]
       },
@@ -62,7 +63,7 @@
     "heartbeat": {
       "enabled": true,
       "interval": "45m",
-      "model": "google/gemini-2.5-flash-lite",
+      "model": "openai/gpt-5-mini",
       "silent_hours": {
         "start": "23:00",
         "end": "08:00",

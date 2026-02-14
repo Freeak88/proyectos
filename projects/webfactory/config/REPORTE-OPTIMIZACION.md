@@ -26,7 +26,7 @@
 
 | Configuración | Valor Anterior | Valor Nuevo | Impacto |
 |--------------|----------------|-------------|---------|
-| **Modelo heartbeat** | moonshot/kimi-k2.5 | **google/gemini-2.5-flash-lite** | -85% costo |
+| **Modelo heartbeat** | moonshot/kimi-k2.5 | **openai/gpt-5-mini** | -90% costo |
 | **Intervalo** | 30 min | **45 min** | -33% frecuencia |
 | **Ventana silencio** | 24/7 | **23:00-08:00** | -37% heartbeats/día |
 | **Heartbeat rotativo** | 4 tareas simultáneas | **1 tarea por pulso** | -75% carga |
@@ -35,8 +35,8 @@
 
 **Cálculo:**
 - Heartbeats anteriores: 48/día × $0.05 = $2.40/día
-- Heartbeats nuevos: 30/día × $0.008 = $0.24/día
-- **Ahorro: 90% en heartbeats**
+- Heartbeats nuevos: 30/día × $0.006 = $0.18/día
+- **Ahorro: 92% en heartbeats**
 
 ---
 
@@ -47,7 +47,7 @@
 | **Chat general** | xai/grok-4.1-fast | gemini-2.5-flash | **$0.50** (vs $3.00) |
 | **Generación contenido** | ollama/qwen3:8b | grok-4.1-fast | **$0.00** (local) |
 | **Razonamiento complejo** | moonshot/kimi-k2.5 | claude-sonnet | $3.00 (solo emergencias) |
-| **Heartbeat** | gemini-2.5-flash-lite | - | **$0.50** |
+| **Heartbeat** | openai/gpt-5-mini | - | **$0.25** |
 
 **Estado:** ✅ Configurado en `optimization-v1.json`
 
@@ -203,11 +203,11 @@ Proyección mensual: $207.00
 
 | Componente | Costo Anterior | Costo Nuevo | Ahorro |
 |------------|----------------|-------------|--------|
-| **Heartbeats** | $72/mes | $7.20/mes | 90% |
+| **Heartbeats** | $72/mes | $5.40/mes | 92% |
 | **Chat general** | $100/mes | $16.67/mes | 83% |
 | **Generación contenido** | $35/mes | $0/mes | 100% |
 | **Emergencias/complejo** | $0/mes | $5/mes | - |
-| **TOTAL** | **$207/mes** | **~$29/mes** | **86%** |
+| **TOTAL** | **$207/mes** | **~$27/mes** | **87%** |
 
 ---
 
